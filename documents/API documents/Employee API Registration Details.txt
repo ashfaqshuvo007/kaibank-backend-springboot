@@ -1,0 +1,126 @@
+
+=================================== Employee Registration API Details ====================================
+
+Method: POST
+Request url: http://localhost:8081/kaibank-system/employees/register
+
+
+------- Request header
+
+Accept -> application/json
+Content-Type -> application/json
+
+
+------- Request body
+
+{
+	"name": "Sam Karlton",
+	"phoneNo": "+3726066000",
+	"username": "sam1234",
+	"password": "78177@@ak",
+	"dateOfBirth": "01-01-2000",
+	"userStatus": "ACTIVE",
+	"email": "sam@gmail.com",
+	"attempts": 0,
+	"sex": "MALE",
+	"roleDTOSet": [
+		{
+			"id": 2,
+			"roleType": "ROLE_MANAGER"
+		}
+	],
+	"branchDTO": 
+		{
+			"id": 1,
+			"name": "Tartu",
+            "address": "Ratuse 23, 50603, KaiBank, Tartu"
+		}
+	
+}
+
+
+------- Response
+
+>>>>> Success
+
+{
+    "returnCode": 201,
+    "message": "Employee created successfully",
+    "result": {
+        "id": 5,
+        "name": "Sam Karlton",
+        "phoneNo": "+3726066000",
+        "username": "sam12345",
+        "password": "26829",
+        "dateOfBirth": "01-01-2000",
+        "userStatus": "ACTIVE",
+        "email": "sam@gmail.com",
+        "attempts": 0,
+        "sex": "MALE",
+        "isFirstLogin": true,
+        "roleDTOSet": [
+            {
+                "id": 2,
+                "roleType": "ROLE_MANAGER",
+                "employeeDTOSet": null,
+                "customerDTOSet": null
+            }
+        ],
+        "branchDTO": {
+            "id": 1,
+            "name": "Tartu",
+            "address": "Ratuse 23, 50603, KaiBank, Tartu",
+            "bankDTO": null,
+            "employeeDTOSet": null,
+            "accountDTOSet": null
+        }
+    }
+}
+
+>>>>>> Error
+
+*** When username is already taken
+
+{
+    "returnCode": 406,
+    "message": "This username is taken",
+    "result": {
+        "id": null,
+        "name": "Sam Karlton",
+        "phoneNo": "+3726066000",
+        "username": "sam1234",
+        "password": "78177@@ak",
+        "dateOfBirth": "01-01-2000",
+        "userStatus": "ACTIVE",
+        "email": "sam@gmail.com",
+        "attempts": 0,
+        "sex": "MALE",
+        "isFirstLogin": false,
+        "roleDTOSet": [
+            {
+                "id": 2,
+                "roleType": "ROLE_MANAGER",
+                "employeeDTOSet": null,
+                "customerDTOSet": null
+            }
+        ],
+        "branchDTO": {
+            "id": 1,
+            "name": "Tartu",
+            "address": "Ratuse 23, 50603, KaiBank, Tartu",
+            "bankDTO": null,
+            "employeeDTOSet": null,
+            "accountDTOSet": null
+        }
+    }
+}
+
+*** When unathorized person make a request
+
+{
+    "errorMessage": "Access is denied",
+    "returnCode": 403
+}
+
+
+

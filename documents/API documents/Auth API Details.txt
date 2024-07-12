@@ -1,0 +1,64 @@
+
+=================================== Login ====================================
+
+Method: POST
+Request url: http://localhost:8081/kaibank-system/auth/login
+
+------- Request header
+
+Pass basic auth details in the header as below with all the request including login
+Authorization: 'Basic ' + btoa(username + ':' + password)
+
+------- Request body
+
+{
+    "username": "ann"
+}
+
+------- Response
+
+>>>>> Success
+
+{
+    "returnCode": 200,
+    "message": "Logged in successfully",
+    "result": {
+        "id": 1,
+        "name": "Ann",
+        "username": "ann",
+        "isFirstLogin": false,
+        "roleDTOSet": [
+            {
+                "id": 3,
+                "roleType": "ROLE_CUSTOMER",
+                "employeeDTOSet": null,
+                "customerDTOSet": null
+            }
+        ]
+    }
+}
+
+>>>>>> Error - when username or password is incorrect
+
+{
+    "errorMessage": "Full authentication is required to access this resource",
+    "returnCode": 401
+}
+
+
+
+=================================== Logout ====================================
+
+Since we are doing Stateless Authentication from backend side, no need to send logout request to backend. Please invalidate frontend session.
+
+
+=================================== Unathorized Access - Role Based ====================================
+
+------- Response
+
+{
+    "errorMessage": "Access is denied",
+    "returnCode": 403
+}
+
+

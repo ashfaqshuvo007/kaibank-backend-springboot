@@ -1,0 +1,9 @@
+All necessary examples are provided in json collection. Check Modify Transaction package and examples under the end points.
+CustomerIdNo is the id_no value from customer table. transactionId is the id of transaction.
+
+You can cancel deposit/withdrawal anytime.
+You cannot cancel your canceled operation.
+You can cancel transfer in 10 minutes. after that you will not be able to cancel it.
+
+
+Modication is combination of cancel and create. You will get previousTransactionId in the request to fetch canceled transaction.

@@ -1,0 +1,2428 @@
+{
+	"info": {
+		"_postman_id": "f314151a-215a-4ab6-9eac-0e72d280fc36",
+		"name": "KaiBank",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Branch",
+			"item": [
+				{
+					"name": "get-all-branches",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"disabledSystemHeaders": {
+							"content-type": true,
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "ann",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8081/kaibank-system/branches",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"kaibank-system",
+								"branches"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Role",
+			"item": [
+				{
+					"name": "get-all-roles",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "ann",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8081/kaibank-system/roles",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"kaibank-system",
+								"roles"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "ann",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic postman:password",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"ann\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/kaibank-system/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"kaibank-system",
+								"auth",
+								"login"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "ann",
+									"disabled": true
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Employee",
+			"item": [
+				{
+					"name": "create-employee",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"name\": \"Sam Karlton\",\r\n\t\"phoneNo\": \"+3726066000\",\r\n\t\"username\": \"sam12345\",\r\n\t\"password\": \"78177@@ak\",\r\n\t\"dateOfBirth\": \"01-01-2000\",\r\n\t\"userStatus\": \"ACTIVE\",\r\n\t\"email\": \"sam@gmail.com\",\r\n\t\"attempts\": 0,\r\n\t\"sex\": \"MALE\",\r\n\t\"roleDTOSet\": [\r\n\t\t{\r\n\t\t\t\"id\": 2,\r\n\t\t\t\"roleType\": \"ROLE_MANAGER\"\r\n\t\t}\r\n\t],\r\n\t\"branchDTO\": \r\n\t\t{\r\n\t\t\t\"id\": 1,\r\n\t\t\t\"name\": \"Tartu\",\r\n            \"address\": \"Ratuse 23, 50603, KaiBank, Tartu\"\r\n\t\t}\r\n\t\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/kaibank-system/employees/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"kaibank-system",
+								"employees",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Transaction",
+			"item": [
+				{
+					"name": "Modify Transaction",
+					"item": [
+						{
+							"name": "Get all supported transaction types",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "21436",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "sam12345",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/kaibank-system/transactionTypes",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"kaibank-system",
+										"transactionTypes"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Get all supported transaction types",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8081/kaibank-system/transactionTypes",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8081",
+											"path": [
+												"kaibank-system",
+												"transactionTypes"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 10 Dec 2021 04:16:07 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"returnCode\": 200,\n    \"message\": \"Transaction types retrieved successfully.\",\n    \"result\": {\n        \"transactionTypes\": [\n            \"WITHDRAW\",\n            \"DEPOSIT\",\n            \"TRANSFER\"\n        ]\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "get-single-transaction",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "21436",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "sam12345",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/kaibank-system/customers/{{customerIdNo}}}/transactions/{{transactionId}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"kaibank-system",
+										"customers",
+										"{{customerIdNo}}}",
+										"transactions",
+										"{{transactionId}}"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "get-single-transaction",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:8081/kaibank-system/customers/{{customerIdNo}}}/transactions/{{transactionId}}",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8081",
+											"path": [
+												"kaibank-system",
+												"customers",
+												"{{customerIdNo}}}",
+												"transactions",
+												"{{transactionId}}"
+											],
+											"query": [
+												{
+													"key": "",
+													"value": null,
+													"disabled": true
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 07 Dec 2021 14:53:22 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"createdTime\": \"2021-12-07T00:00:00\",\n    \"modifiedTime\": null,\n    \"createdByUser\": \"SYSTEM\",\n    \"modifiedByUser\": null,\n    \"versionId\": 0,\n    \"id\": 2,\n    \"transactionType\": \"DEPOSIT\",\n    \"amount\": 1500,\n    \"transactionDate\": \"2021-12-07T00:00:00\",\n    \"transactionStatus\": \"HOLD\",\n    \"message\": null,\n    \"recipient\": null,\n    \"prevTransId\": null,\n    \"accountDTO\": null,\n    \"customerDTO\": null\n}"
+								}
+							]
+						},
+						{
+							"name": "get-all-transactions",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "21436",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "sam12345",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/kaibank-system/customers/{{customerIdNo}}}/transactions",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"kaibank-system",
+										"customers",
+										"{{customerIdNo}}}",
+										"transactions"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "get-all-transactions-success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:8081/kaibank-system/customers/{{customerIdNo}}}/transactions",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8081",
+											"path": [
+												"kaibank-system",
+												"customers",
+												"{{customerIdNo}}}",
+												"transactions"
+											],
+											"query": [
+												{
+													"key": "",
+													"value": null,
+													"disabled": true
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 10 Dec 2021 01:31:01 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"returnCode\": 200,\n    \"message\": \"All transactions of user returned successfully\",\n    \"result\": [\n        {\n            \"createdTime\": \"2021-12-10T03:21:15.068162\",\n            \"modifiedTime\": \"2021-12-10T03:21:44.581187\",\n            \"createdByUser\": \"admin\",\n            \"modifiedByUser\": \"sam12345\",\n            \"versionId\": 1,\n            \"id\": 17,\n            \"transactionType\": \"WITHDRAW\",\n            \"amount\": 30.5,\n            \"transactionDate\": \"2021-12-10T03:21:14.968798\",\n            \"transactionStatus\": \"CANCELLED\",\n            \"message\": \"none1\"\n        },\n        {\n            \"createdTime\": \"2021-12-10T02:15:55.224769\",\n            \"modifiedTime\": \"2021-12-10T02:15:55.224769\",\n            \"createdByUser\": \"admin\",\n            \"modifiedByUser\": \"admin\",\n            \"versionId\": 0,\n            \"id\": 16,\n            \"transactionType\": \"TRANSFER\",\n            \"amount\": 30.5,\n            \"transactionDate\": \"2021-12-10T02:15:50.644054\",\n            \"transactionStatus\": \"PENDING\",\n            \"message\": \"none1\",\n            \"recipient\": {\n                \"id\": 1,\n                \"name\": \"ARMUD\",\n                \"accountNo\": \"111111\",\n                \"iban\": \"EE11110000\",\n                \"openDate\": \"2021-12-09T00:00:00\",\n                \"accountType\": \"SAVINGS\",\n                \"accountStatus\": \"ACTIVE\",\n                \"availableAmount\": 4969.5,\n                \"totalAmount\": 4969.5\n            }\n        },\n        {\n            \"createdTime\": \"2021-12-10T02:13:35.355085\",\n            \"modifiedTime\": \"2021-12-10T02:13:35.355085\",\n            \"createdByUser\": \"admin\",\n            \"modifiedByUser\": \"admin\",\n            \"versionId\": 0,\n            \"id\": 15,\n            \"transactionType\": \"TRANSFER\",\n            \"amount\": 30.5,\n            \"transactionDate\": \"2021-12-10T02:13:30.299122\",\n            \"transactionStatus\": \"PENDING\",\n            \"message\": \"none1\",\n            \"recipient\": {\n                \"id\": 1,\n                \"name\": \"ARMUD\",\n                \"accountNo\": \"111111\",\n                \"iban\": \"EE11110000\",\n                \"openDate\": \"2021-12-09T00:00:00\",\n                \"accountType\": \"SAVINGS\",\n                \"accountStatus\": \"ACTIVE\",\n                \"availableAmount\": 4969.5,\n                \"totalAmount\": 4969.5\n            }\n        },\n        {\n            \"createdTime\": \"2021-12-10T01:57:27.050416\",\n            \"modifiedTime\": \"2021-12-10T03:30:02.89588\",\n            \"createdByUser\": \"admin\",\n            \"modifiedByUser\": \"sam12345\",\n            \"versionId\": 1,\n            \"id\": 14,\n            \"transactionType\": \"WITHDRAW\",\n            \"amount\": 30.5,\n            \"transactionDate\": \"2021-12-10T01:57:27.0228\",\n            \"transactionStatus\": \"CANCELLED\",\n            \"message\": \"none1\"\n        },\n        {\n            \"createdTime\": \"2021-12-10T01:57:18.086806\",\n            \"modifiedTime\": \"2021-12-10T01:57:18.086806\",\n            \"createdByUser\": \"admin\",\n            \"modifiedByUser\": \"admin\",\n            \"versionId\": 0,\n            \"id\": 13,\n            \"transactionType\": \"DEPOSIT\",\n            \"amount\": 30.5,\n            \"transactionDate\": \"2021-12-10T01:57:18.05697\",\n            \"transactionStatus\": \"PENDING\",\n            \"message\": \"none1\"\n        },\n        {\n            \"createdTime\": \"2021-12-10T01:57:11.350149\",\n            \"modifiedTime\": \"2021-12-10T01:57:11.350149\",\n            \"createdByUser\": \"admin\",\n            \"modifiedByUser\": \"admin\",\n            \"versionId\": 0,\n            \"id\": 12,\n            \"transactionType\": \"TRANSFER\",\n            \"amount\": 30.5,\n            \"transactionDate\": \"2021-12-10T01:57:05.869821\",\n            \"transactionStatus\": \"PENDING\",\n            \"message\": \"none1\",\n            \"recipient\": {\n                \"id\": 1,\n                \"name\": \"ARMUD\",\n                \"accountNo\": \"111111\",\n                \"iban\": \"EE11110000\",\n                \"openDate\": \"2021-12-09T00:00:00\",\n                \"accountType\": \"SAVINGS\",\n                \"accountStatus\": \"ACTIVE\",\n                \"availableAmount\": 4969.5,\n                \"totalAmount\": 4969.5\n            }\n        },\n        {\n            \"createdTime\": \"2021-12-10T01:55:04.865917\",\n            \"modifiedTime\": \"2021-12-10T01:55:04.865917\",\n            \"createdByUser\": \"admin\",\n            \"modifiedByUser\": \"admin\",\n            \"versionId\": 0,\n            \"id\": 11,\n            \"transactionType\": \"TRANSFER\",\n            \"amount\": 30.5,\n            \"transactionDate\": \"2021-12-10T01:54:59.752954\",\n            \"transactionStatus\": \"PENDING\",\n            \"message\": \"none1\",\n            \"recipient\": {\n                \"id\": 1,\n                \"name\": \"ARMUD\",\n                \"accountNo\": \"111111\",\n                \"iban\": \"EE11110000\",\n                \"openDate\": \"2021-12-09T00:00:00\",\n                \"accountType\": \"SAVINGS\",\n                \"accountStatus\": \"ACTIVE\",\n                \"availableAmount\": 4969.5,\n                \"totalAmount\": 4969.5\n            }\n        },\n        {\n            \"createdTime\": \"2021-12-10T01:52:10.388932\",\n            \"modifiedTime\": \"2021-12-10T01:52:10.388932\",\n            \"createdByUser\": \"admin\",\n            \"modifiedByUser\": \"admin\",\n            \"versionId\": 0,\n            \"id\": 10,\n            \"transactionType\": \"TRANSFER\",\n            \"amount\": 30.5,\n            \"transactionDate\": \"2021-12-10T01:52:04.69226\",\n            \"transactionStatus\": \"PENDING\",\n            \"message\": \"none1\",\n            \"recipient\": {\n                \"id\": 1,\n                \"name\": \"ARMUD\",\n                \"accountNo\": \"111111\",\n                \"iban\": \"EE11110000\",\n                \"openDate\": \"2021-12-09T00:00:00\",\n                \"accountType\": \"SAVINGS\",\n                \"accountStatus\": \"ACTIVE\",\n                \"availableAmount\": 4969.5,\n                \"totalAmount\": 4969.5\n            }\n        },\n        {\n            \"createdTime\": \"2021-12-10T01:44:29.532046\",\n            \"modifiedTime\": \"2021-12-10T01:44:29.532046\",\n            \"createdByUser\": \"admin\",\n            \"modifiedByUser\": \"admin\",\n            \"versionId\": 0,\n            \"id\": 9,\n            \"transactionType\": \"TRANSFER\",\n            \"amount\": 30.5,\n            \"transactionDate\": \"2021-12-10T01:44:24.435155\",\n            \"transactionStatus\": \"PENDING\",\n            \"message\": \"none1\",\n            \"recipient\": {\n                \"id\": 1,\n                \"name\": \"ARMUD\",\n                \"accountNo\": \"111111\",\n                \"iban\": \"EE11110000\",\n                \"openDate\": \"2021-12-09T00:00:00\",\n                \"accountType\": \"SAVINGS\",\n                \"accountStatus\": \"ACTIVE\",\n                \"availableAmount\": 4969.5,\n                \"totalAmount\": 4969.5\n            }\n        },\n        {\n            \"createdTime\": \"2021-12-10T01:36:42.776606\",\n            \"modifiedTime\": \"2021-12-10T01:36:42.776606\",\n            \"createdByUser\": \"admin\",\n            \"modifiedByUser\": \"admin\",\n            \"versionId\": 0,\n            \"id\": 8,\n            \"transactionType\": \"DEPOSIT\",\n            \"amount\": 30.5,\n            \"transactionDate\": \"2021-12-10T01:36:42.744986\",\n            \"transactionStatus\": \"PENDING\",\n            \"message\": \"none1\"\n        },\n        {\n            \"createdTime\": \"2021-12-10T01:35:59.706023\",\n            \"modifiedTime\": \"2021-12-10T01:35:59.706023\",\n            \"createdByUser\": \"admin\",\n            \"modifiedByUser\": \"admin\",\n            \"versionId\": 0,\n            \"id\": 7,\n            \"transactionType\": \"WITHDRAW\",\n            \"amount\": 30.5,\n            \"transactionDate\": \"2021-12-10T01:35:59.590273\",\n            \"transactionStatus\": \"PENDING\",\n            \"message\": \"none1\"\n        },\n        {\n            \"createdTime\": \"2021-12-10T01:32:47.278132\",\n            \"modifiedTime\": \"2021-12-10T01:32:47.278132\",\n            \"createdByUser\": \"admin\",\n            \"modifiedByUser\": \"admin\",\n            \"versionId\": 0,\n            \"id\": 6,\n            \"transactionType\": \"WITHDRAW\",\n            \"amount\": 30.5,\n            \"transactionDate\": \"2021-12-10T01:32:47.176632\",\n            \"transactionStatus\": \"PENDING\",\n            \"message\": \"none1\"\n        },\n        {\n            \"createdTime\": \"2021-12-09T21:30:45.892601\",\n            \"modifiedTime\": \"2021-12-09T21:30:45.892601\",\n            \"createdByUser\": \"admin\",\n            \"modifiedByUser\": \"admin\",\n            \"versionId\": 0,\n            \"id\": 5,\n            \"transactionType\": \"WITHDRAW\",\n            \"amount\": 30.5,\n            \"transactionDate\": \"2021-12-09T21:30:45.843561\",\n            \"transactionStatus\": \"PENDING\",\n            \"message\": \"none1\"\n        },\n        {\n            \"createdTime\": \"2021-12-09T21:03:24.431719\",\n            \"modifiedTime\": \"2021-12-09T21:03:24.431719\",\n            \"createdByUser\": \"sam12345\",\n            \"modifiedByUser\": \"sam12345\",\n            \"versionId\": 0,\n            \"id\": 4,\n            \"transactionType\": \"DEPOSIT\",\n            \"amount\": 1000,\n            \"transactionDate\": \"2021-12-04T01:08:46.344599\",\n            \"transactionStatus\": \"HOLD\",\n            \"prevTransId\": 3\n        },\n        {\n            \"createdTime\": \"2021-12-09T20:59:05.838026\",\n            \"modifiedTime\": \"2021-12-09T21:03:24.326374\",\n            \"createdByUser\": \"sam12345\",\n            \"modifiedByUser\": \"sam12345\",\n            \"versionId\": 1,\n            \"id\": 3,\n            \"transactionType\": \"DEPOSIT\",\n            \"amount\": 1000,\n            \"transactionDate\": \"2021-12-04T01:08:46.344599\",\n            \"transactionStatus\": \"CANCELLED\",\n            \"prevTransId\": 2\n        },\n        {\n            \"createdTime\": \"2021-12-09T00:00:00\",\n            \"modifiedTime\": \"2021-12-09T20:59:05.66005\",\n            \"createdByUser\": \"SYSTEM\",\n            \"modifiedByUser\": \"sam12345\",\n            \"versionId\": 1,\n            \"id\": 2,\n            \"transactionType\": \"DEPOSIT\",\n            \"amount\": 1500,\n            \"transactionDate\": \"2021-12-09T00:00:00\",\n            \"transactionStatus\": \"CANCELLED\"\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "cancel-single-transaction",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "21436",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "sam12345",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/kaibank-system/customers/{{customerIdNo}}}/transactions/{{transactionId}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"kaibank-system",
+										"customers",
+										"{{customerIdNo}}}",
+										"transactions",
+										"{{transactionId}}"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "cancel-single-transaction-success",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8081/kaibank-system/customers/{{customerIdNo}}}/transactions/17",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8081",
+											"path": [
+												"kaibank-system",
+												"customers",
+												"{{customerIdNo}}}",
+												"transactions",
+												"17"
+											],
+											"query": [
+												{
+													"key": "",
+													"value": null,
+													"disabled": true
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 10 Dec 2021 01:21:44 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"returnCode\": 200,\n    \"message\": \"Transaction cancelled successfully. \",\n    \"result\": {\n        \"createdTime\": \"2021-12-10T03:21:15.068162\",\n        \"modifiedTime\": \"2021-12-10T03:21:15.068162\",\n        \"createdByUser\": \"admin\",\n        \"modifiedByUser\": \"admin\",\n        \"versionId\": 0,\n        \"id\": 17,\n        \"transactionType\": \"WITHDRAW\",\n        \"amount\": 30.5,\n        \"transactionDate\": \"2021-12-10T03:21:14.968798\",\n        \"transactionStatus\": \"CANCELLED\",\n        \"message\": \"none1\"\n    }\n}"
+								},
+								{
+									"name": "cancel-single-transaction-fail",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8081/kaibank-system/customers/{{customerIdNo}}}/transactions/17",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8081",
+											"path": [
+												"kaibank-system",
+												"customers",
+												"{{customerIdNo}}}",
+												"transactions",
+												"17"
+											],
+											"query": [
+												{
+													"key": "",
+													"value": null,
+													"disabled": true
+												}
+											]
+										}
+									},
+									"status": "Not Acceptable",
+									"code": 406,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 10 Dec 2021 01:22:22 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"returnCode\": 406,\n    \"message\": \"Transaction cannot be cancelled\"\n}"
+								},
+								{
+									"name": "cancel-single-transaction-exceeding-time",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8081/kaibank-system/customers/{{customerIdNo}}}/transactions/16",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8081",
+											"path": [
+												"kaibank-system",
+												"customers",
+												"{{customerIdNo}}}",
+												"transactions",
+												"16"
+											],
+											"query": [
+												{
+													"key": "",
+													"value": null,
+													"disabled": true
+												}
+											]
+										}
+									},
+									"status": "Not Acceptable",
+									"code": 406,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 10 Dec 2021 01:22:47 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"returnCode\": 406,\n    \"message\": \"Allowed time exceeded for cancelling transfer!\"\n}"
+								}
+							]
+						},
+						{
+							"name": "modify-transaction",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "21436",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "sam12345",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"transactionType\": \"WITHDRAW\",\r\n\t\"amount\": 30.5,\r\n\t\"message\": \"none1\",\r\n\t\"accountDTO\": {\r\n        \"id\":1\r\n        },\r\n\t\"customerDTO\": {\r\n        \"id\": 1\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/kaibank-system/customers/{{customerIdNo}}}/transactions/{{transactionId}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"kaibank-system",
+										"customers",
+										"{{customerIdNo}}}",
+										"transactions",
+										"{{transactionId}}"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "modify-transaction-fail",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"transactionType\": \"DEPOSIT\",\r\n    \"amount\": 1000.0,\r\n    \"transactionDate\": \"2021-12-04T01:08:46.344599\",\r\n    \"transactionStatus\": \"HOLD\",\r\n    \"message\": null,\r\n    \"recipient\": null,\r\n    \"prevTransId\": null,\r\n    \"accountDTO\": null,\r\n    \"customerDTO\": null\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8081/kaibank-system/customers/{{customerIdNo}}}/transactions/{{transactionId}}",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8081",
+											"path": [
+												"kaibank-system",
+												"customers",
+												"{{customerIdNo}}}",
+												"transactions",
+												"{{transactionId}}"
+											],
+											"query": [
+												{
+													"key": "",
+													"value": null,
+													"disabled": true
+												}
+											]
+										}
+									},
+									"status": "Not Acceptable",
+									"code": 406,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 10 Dec 2021 01:45:19 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"returnCode\": 406,\n    \"message\": \"Transaction cannot be cancelled\"\n}"
+								},
+								{
+									"name": "modify-transaction-withdrawal/deposit",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\t\"transactionType\": \"WITHDRAW\",\r\n\t\"amount\": 30.5,\r\n\t\"message\": \"none1\",\r\n\t\"accountDTO\": {\r\n        \"id\":1\r\n        },\r\n\t\"customerDTO\": {\r\n        \"id\": 1\r\n    }\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8081/kaibank-system/customers/{{customerIdNo}}}/transactions/{{transactionId}}",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8081",
+											"path": [
+												"kaibank-system",
+												"customers",
+												"{{customerIdNo}}}",
+												"transactions",
+												"{{transactionId}}"
+											],
+											"query": [
+												{
+													"key": "",
+													"value": null,
+													"disabled": true
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 10 Dec 2021 03:48:41 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"returnCode\": 200,\n    \"message\": \"Transaction modified successfully. \",\n    \"result\": {\n        \"createdTime\": \"2021-12-10T05:48:41.2498439\",\n        \"modifiedTime\": \"2021-12-10T05:48:41.2498439\",\n        \"createdByUser\": \"sam12345\",\n        \"modifiedByUser\": \"sam12345\",\n        \"versionId\": 0,\n        \"id\": 21,\n        \"transactionType\": \"WITHDRAW\",\n        \"amount\": 30.5,\n        \"transactionDate\": \"2021-12-10T05:48:39.3148566\",\n        \"transactionStatus\": \"SUCCESS\",\n        \"message\": \"none1\",\n        \"prevTransId\": 20,\n        \"accountDTO\": {\n            \"id\": 1,\n            \"name\": \"ARMUD\",\n            \"accountNo\": \"111111\",\n            \"iban\": \"EE11110000\",\n            \"openDate\": \"2021-12-09T00:00:00\",\n            \"accountType\": \"SAVINGS\",\n            \"accountStatus\": \"ACTIVE\",\n            \"availableAmount\": 4939,\n            \"totalAmount\": 4939\n        }\n    }\n}"
+								},
+								{
+									"name": "modify-transaction-transfer",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\t\"transactionType\": \"TRANSFER\",\r\n\t\"amount\": 30.5,\r\n\t\"message\": \"none1\",\r\n\t\"accountDTO\": {\r\n        \"id\":1\r\n        },\r\n    \"recipient\": {\r\n        \"iban\":\"EE11110000\"\r\n        }\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8081/kaibank-system/customers/{{customerIdNo}}}/transactions/{{transactionId}}",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8081",
+											"path": [
+												"kaibank-system",
+												"customers",
+												"{{customerIdNo}}}",
+												"transactions",
+												"{{transactionId}}"
+											],
+											"query": [
+												{
+													"key": "",
+													"value": null,
+													"disabled": true
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 10 Dec 2021 04:06:18 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"returnCode\": 200,\n    \"message\": \"Transaction modified successfully. \",\n    \"result\": {\n        \"createdTime\": \"2021-12-10T06:06:18.8842219\",\n        \"modifiedTime\": \"2021-12-10T06:06:18.8842219\",\n        \"createdByUser\": \"sam12345\",\n        \"modifiedByUser\": \"sam12345\",\n        \"versionId\": 0,\n        \"id\": 25,\n        \"transactionType\": \"TRANSFER\",\n        \"amount\": 30.5,\n        \"transactionDate\": \"2021-12-10T06:06:16.5467209\",\n        \"transactionStatus\": \"PENDING\",\n        \"message\": \"none1\",\n        \"recipient\": {\n            \"name\": \"ARMUD\",\n            \"accountNo\": \"111111\",\n            \"iban\": \"EE11110000\",\n            \"accountType\": \"SAVINGS\"\n        },\n        \"prevTransId\": 24,\n        \"accountDTO\": {\n            \"id\": 1,\n            \"name\": \"ARMUD\",\n            \"accountNo\": \"111111\",\n            \"iban\": \"EE11110000\",\n            \"openDate\": \"2021-12-09T00:00:00\",\n            \"accountType\": \"SAVINGS\",\n            \"accountStatus\": \"ACTIVE\",\n            \"availableAmount\": 4969.5,\n            \"totalAmount\": 4969.5\n        }\n    }\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Money Widthdraw",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"transactionType\": \"WITHDRAW\",\r\n\t\"amount\": 30.5,\r\n\t\"message\": \"none1\",\r\n\t\"accountDTO\": {\r\n        \"id\":1\r\n        },\r\n\t\"customerDTO\": {\r\n        \"id\": 1\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/kaibank-system/transactions/create-transaction",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"kaibank-system",
+								"transactions",
+								"create-transaction"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Money Deposit",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"transactionType\": \"DEPOSIT\",\r\n\t\"amount\": 30.5,\r\n\t\"message\": \"none1\",\r\n\t\"accountDTO\": {\r\n        \"id\":1\r\n        }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/kaibank-system/transactions/create-transaction",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"kaibank-system",
+								"transactions",
+								"create-transaction"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Money Transfer",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"transactionType\": \"TRANSFER\",\r\n\t\"amount\": 30.5,\r\n\t\"message\": \"none1\",\r\n\t\"accountDTO\": {\r\n        \"id\":1\r\n        },\r\n    \"recipient\": {\r\n        \"iban\":2020\r\n        }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/kaibank-system/transactions/create-between-banks-transaction",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"kaibank-system",
+								"transactions",
+								"create-between-banks-transaction"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Money Transfer in mobile",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "ann",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"transactionType\": \"TRANSFER\",\r\n\t\"amount\": 30.5,\r\n\t\"message\": \"none1\",\r\n\t\"accountDTO\": {\r\n        \"id\":1\r\n        },\r\n    \"recipient\": {\r\n        \"iban\":\"EE72945000\"\r\n        }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/kaibank-system/transactions/transfer-in-mobile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"kaibank-system",
+								"transactions",
+								"transfer-in-mobile"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Money Transfer in mobile",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"transactionType\": \"TRANSFER\",\r\n\t\"amount\": 30.5,\r\n\t\"message\": \"none1\",\r\n\t\"accountDTO\": {\r\n        \"id\":1\r\n        },\r\n    \"recipient\": {\r\n        \"iban\":\"EE72945000\"\r\n        }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/kaibank-system/transactions/transfer-in-mobile",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"kaibank-system",
+										"transactions",
+										"transfer-in-mobile"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 11 Dec 2021 13:59:20 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"returnCode\": 201,\n    \"message\": \"Transaction between banks created successfully\",\n    \"result\": {\n        \"createdTime\": \"2021-12-11T15:59:20.8023493\",\n        \"modifiedTime\": \"2021-12-11T15:59:20.8023493\",\n        \"createdByUser\": \"ann\",\n        \"modifiedByUser\": \"ann\",\n        \"versionId\": 0,\n        \"id\": 36,\n        \"transactionType\": \"TRANSFER\",\n        \"amount\": 30.5,\n        \"transactionDate\": \"2021-12-11T15:59:20.7640523\",\n        \"transactionStatus\": \"PENDING\",\n        \"message\": \"none1\",\n        \"recipient\": {\n            \"name\": \"My Acc\",\n            \"accountNo\": \"72945\",\n            \"iban\": \"EE72945000\",\n            \"accountType\": \"SAVINGS\"\n        },\n        \"accountDTO\": {\n            \"id\": 1,\n            \"name\": \"ARMUD\",\n            \"accountNo\": \"111111\",\n            \"iban\": \"EE11110000\",\n            \"openDate\": \"2021-12-09T00:00:00\",\n            \"accountType\": \"SAVINGS\",\n            \"accountStatus\": \"ACTIVE\",\n            \"availableAmount\": 4878,\n            \"totalAmount\": 4878\n        }\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Customer",
+			"item": [
+				{
+					"name": "get-all-customers",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"disabledSystemHeaders": {
+							"content-type": true,
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "ann",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8081/kaibank-system/customers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"kaibank-system",
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-customer-by-idno",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"disabledSystemHeaders": {
+							"content-type": true,
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "ann",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8081/kaibank-system/customers/{{customerIdNo}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"kaibank-system",
+								"customers",
+								"{{customerIdNo}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-customer-personal-data",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"disabledSystemHeaders": {
+							"content-type": true,
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "ann",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8081/kaibank-system/customers/myData",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"kaibank-system",
+								"customers",
+								"myData"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get-customer-personal-data",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:8081/kaibank-system/customers/myData",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"kaibank-system",
+										"customers",
+										"myData"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 11 Dec 2021 12:40:11 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"returnCode\": 200,\n    \"message\": \"Customers retrieved successfully.\",\n    \"result\": {\n        \"id\": 1,\n        \"name\": \"Ann\",\n        \"address\": \"Narva mnt 25\",\n        \"phoneNo\": \"+37123456\",\n        \"idNo\": \"123456\",\n        \"username\": \"ann\",\n        \"password\": \"$2a$10$lB6/PKg2/JC4XgdMDXyjs.dLC9jFNAuuNbFkL9udcXe/EBjxSyqxW\",\n        \"dateOfBirth\": \"25-11-1990\",\n        \"userStatus\": \"ACTIVE\",\n        \"email\": \"ann@gmail.com\",\n        \"attempts\": 0,\n        \"pin\": 1234,\n        \"sex\": \"FEMALE\",\n        \"isFirstLogin\": false,\n        \"accountDTO\": {\n            \"id\": 1,\n            \"name\": \"ARMUD\",\n            \"accountNo\": \"111111\",\n            \"iban\": \"EE11110000\",\n            \"openDate\": \"2021-12-09T00:00:00\",\n            \"accountType\": \"SAVINGS\",\n            \"accountStatus\": \"ACTIVE\",\n            \"availableAmount\": 4969.5,\n            \"totalAmount\": 4969.5\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "create-customer",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true,
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "ann",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Adil A\",\n    \"address\":\"Somewhere Tartu\",\n    \"phoneNo\":\"666 66 66\",\n    \"idNo\":\"123abc\",\n    \"username\":\"adila\",\n    \"password\":\"passworda\",\n    \"dateOfBirth\":\"10-10-1999\",\n    \"userStatus\":\"ACTIVE\",\n    \"email\":\"adil@adil\",\n    \"accountName\":\"My Acc\",\n    \"accountType\":\"SAVINGS\",\n    \"pin\":1234,\n    \"sex\":\"MALE\",\n    \"roleDTOSet\": [\n\t\t{\n\t\t\t\"id\": 3,\n\t\t\t\"roleType\": \"ROLE_CUSTOMER\"\n\t\t}\n\t]\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/kaibank-system/customers/new",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"kaibank-system",
+								"customers",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-customer",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true,
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "ann",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"idNo\":\"qqqqqqq\",\n    \"name\": \"Sarp\",\n    \"address\": \"Turkey\",\n    \"phoneNo\": \"696969\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/kaibank-system/customers/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"kaibank-system",
+								"customers",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-customer",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true,
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "ann",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"idNo\":\"qqqqqqq\",\n    \"name\": \"Sarp\",\n    \"address\": \"Turkey\",\n    \"phoneNo\": \"696969\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/kaibank-system/customers/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"kaibank-system",
+								"customers",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "block-customer",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true,
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "ann",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"idNo\":\"qqqqqqq\",\n    \"name\": \"Sarp\",\n    \"address\": \"Turkey\",\n    \"phoneNo\": \"696969\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/kaibank-system/customers/block",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"kaibank-system",
+								"customers",
+								"block"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "unblock-customer",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true,
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "ann",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"idNo\":\"qqqqqqq\",\n    \"name\": \"Sarp\",\n    \"address\": \"Turkey\",\n    \"phoneNo\": \"696969\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/kaibank-system/customers/unblock",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"kaibank-system",
+								"customers",
+								"unblock"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "customerIdNo",
+			"value": "123456"
+		},
+		{
+			"key": "transactionId",
+			"value": "2"
+		}
+	]
+}
