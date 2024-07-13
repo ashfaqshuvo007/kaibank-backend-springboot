@@ -16,6 +16,8 @@
     + [Access the application.](#access-the-application)
   * [Local database credentials can be found in application.yml:](#local-database-credentials-can-be-found-in-applicationyml-)
   * [Access API documentation](#access-api-documentation)
+  * [Architecture](#architecture)
+    
 
 ---
 
@@ -53,7 +55,9 @@ Needs to install `Java 11`, `Maven 3.6.3` or above, `MySql 8` and `Intellij`.
 
 ## How to build the project:
 1. ### Clone the project from the repository :
-    - [kaibank-backend](https://gitlab.com/pabasarajw/kaibank-backend)
+    ```shell
+    git clone git@github.com:ashfaqshuvo007/kaibank-backend-springboot.git
+    ```
 
 2. ### Build the project.
         - Go to project directory
@@ -79,3 +83,7 @@ Needs to install `Java 11`, `Maven 3.6.3` or above, `MySql 8` and `Intellij`.
 ## Access API documentation 
 Swagger API documentation can be found here: http://localhost:8081/kaibank-system/api-ui.html
 
+## Architecture
+
+All details of the architecture of the system with class diagram, sequence diagrams etc. 
+can be found here: [Architecture Details](architecture.md)
